@@ -14,4 +14,11 @@ public class Bullet : MonoBehaviour {
     void Update () {
         rb.velocity = gameObject.transform.forward;
 	}
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
