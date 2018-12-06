@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     Rigidbody rb;
+    public int damage = 1;
 
     private void Start()
     {
