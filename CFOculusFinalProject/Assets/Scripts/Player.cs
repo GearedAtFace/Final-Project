@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public float health = 100f;
+    public int score = 0;
     public Image hitSplat;
     public Text healthText;
     public Text GameOver;
     public Text GameTimer;
 
     private float timer = 0;
-    private float gameTimer = 0;
     public bool dead = false;
     private int minutes = 0, seconds = 0;
 

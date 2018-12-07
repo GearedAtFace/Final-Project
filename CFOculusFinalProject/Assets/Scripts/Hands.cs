@@ -12,6 +12,7 @@ public class Hands : MonoBehaviour {
     public GameObject spawnPoint;
     public GameObject bullet;
     public GameObject Shield;
+    public Player player;
 
     private float fireRate = 0.25f;
     private float fireTimer = 0.25f;
@@ -53,6 +54,7 @@ public class Hands : MonoBehaviour {
             {
                 redCharges++;
                 Destroy(other.gameObject);
+                player.score += 10;
             }
         }
 
@@ -62,6 +64,7 @@ public class Hands : MonoBehaviour {
             {
                 blueCharges++;
                 Destroy(other.gameObject);
+                player.score += 10;
             }
         }
     }

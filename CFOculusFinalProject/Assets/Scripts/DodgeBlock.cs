@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DodgeBlock : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class DodgeBlock : MonoBehaviour {
     public bool blue;
     public int health = 5;
     public int damage = 1;
+    public Text HPText;
 
     private void Start()
     {
@@ -18,6 +20,7 @@ public class DodgeBlock : MonoBehaviour {
     void Update()
     {
         rb.velocity = gameObject.transform.forward * 3;
+        HPText.text = health.ToString();
     }
     private void OnTriggerEnter(Collider other)
     {
