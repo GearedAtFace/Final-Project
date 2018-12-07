@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
 
     private void die()
     {
-        GameOver.color = Color.red;
+        GameOver.color = Color.white;
         dead = true;
     }
 }
