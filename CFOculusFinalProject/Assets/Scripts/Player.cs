@@ -11,14 +11,19 @@ public class Player : MonoBehaviour
     public Text healthText;
     public Text GameOver;
     public Text GameTimer;
+    public Text HUDScore;
+    public Text start;
+    public Hands leftHand, rightHand;
 
     private float timer = 0;
+    private float startTime = 0;
     public bool dead = false;
     private int minutes = 0, seconds = 0;
 
     private void Start()
     {
         GameOver.color = Color.clear;
+        healthText.color = Color.clear;
     }
 
     void Update ()
@@ -46,6 +51,19 @@ public class Player : MonoBehaviour
                 healthText.color = new Color(Color.green.r, Color.green.g, Color.green.b, (Color.green.a * (timer + 2)));
             }
             else healthText.color = Color.clear;
+
+            HUDScore.text = "Score: " + score;
+        }
+        else
+        {
+            if(Input.GetButton("Fire1"))
+            {
+                dead = false;
+                start.color = Color.clear;
+                start.text = "Press A to restart";
+                startTime = Time.realtimeSinceStartup;
+                unDie();
+            }
         }
     }
 
@@ -64,5 +82,18 @@ public class Player : MonoBehaviour
     {
         GameOver.color = Color.white;
         dead = true;
+        start.color = Color.white;
+    }
+
+    public void unDie()
+    {
+        dead = false;
+        health = 100f;
+        timer = 0;
+        minutes = 0;
+        seconds = 0;
+        leftHand.blueCharges = 20;
+        rightHand.redCharges = 20;
+        GameOver.color = Color.clear;
     }
 }
