@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour {
         rb.useGravity = false;
     }
     void Update () {
-        rb.velocity = gameObject.transform.forward;
+        rb.velocity = gameObject.transform.forward * 3;
 	}
     private void OnTriggerEnter(Collider other)
     {
@@ -21,5 +21,10 @@ public class Bullet : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
+
+    public void facePlayer()
+    {
+        transform.LookAt(GameObject.Find("Main Camera").transform);
     }
 }
